@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)http://uoftbooks.ca/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./uoftbooks.ca_files/ga.js"></script><script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+<meta charset="utf-8" name="uoftbooks.ca" content="Buy &amp; Sell Used Books at the University of Toronto, over 70,000 postings">
+
+	<link rel="shortcut icon" href="http://uoftbooks.ca/assets/favicon.ico">
+	<link href="./uoftbooks.ca_files/application.css" media="screen" rel="stylesheet" type="text/css">
+	<link href="./uoftbooks.ca_files/css" rel="stylesheet" type="text/css">
+	<link href="./uoftbooks.ca_files/css(1)" rel="stylesheet" type="text/css">
+  	<style type="text/css"></style>
+
+	<title>uoftbooks.ca</title>
+
+	<meta content="authenticity_token" name="csrf-param">
+<meta content="M0tDJKwEwjYpMEyQW1rka2xMWj8oY5DJN9q3jv/r7MU=" name="csrf-token">
+
+
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-22359808-2']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+</head>
+<body>
+	<div id="top_box" class="container">
+		<div class="mid_box">
+			<div id="logo_box"><a href="./uoftbooks.ca_files/uoftbooks.ca.html"></a></div>
+			<script type="text/javascript">
+	$(document).ready(function() {
+		var username = $.cookies.get('auth_token');
+		if (username == null) {
+			$("#login_link").show();
+			$("#logout_link").hide();
+		} else {
+			$("#login_link").hide();
+			$("#logout_link").show();
+		}
+	});
+</script> 	
+
+<div id="navbar">
+		<a href="http://uoftbooks.ca/postings/new" class="empha_link">sell</a>
+	 	<span id="login_link"><a href="http://uoftbooks.ca/login">login</a></span>
+		<span id="logout_link" style="display: none;"><a href="http://uoftbooks.ca/logout">logout</a></span><br>
+		<br>
+</div>
+
+		</div>
+	</div>
+	
+	<div id="back_tile">
+		<div id="body_box" class="container">
+			<div class="mid_box">
+				<script type="text/javascript">
+	(function() {
+		var username = $.cookies.get('auth_token');
+		if (username != null) {
+			$.ajax({
+			  url: '/mybooks',
+			  context: document.body,
+			  success: function(){
+			  }
+			});
+		} 
+	 })();
+</script> 	
+
+<div id="info">
+	<div class="info_box" id="find_info_box">
+			<img alt="" src="./uoftbooks.ca_files/icon.find.png">
+		<div class="info_txt" id="find_txt">
+			<div class="info_header" id="find_header">Find books</div>
+			<div class="info_body" id="find_body">Our database contains every book<br>in the Official Booklist, so finding<br>your book is quick and easy.</div>
+		</div>
+	</div>
+	<div class="info_box" id="buy_info_box">
+			<img alt="" src="./uoftbooks.ca_files/icon.buy.png">
+		<div class="info_txt" id="buy_txt">
+			<div class="info_header" id="buy_header">Buy books</div>
+			<div class="info_body" id="buy_body">With 3,000 books and 70,000<br>postings, you can always find<br>your book at the right price.</div>
+		</div>
+	</div>
+	<div class="info_box" id="sell_info_box">
+			<img alt="" src="./uoftbooks.ca_files/icon.sell.png">
+		<div class="info_txt" id="sell_txt">
+			<div class="info_header" id="sell_header">Sell books&nbsp;</div>
+			<div class="info_body" id="sell_body">Get maximum exposure. &nbsp;&nbsp;&nbsp;<br>Post your books here and we'll automatically post to TUSBE.</div>
+		</div>
+	</div>
+</div>
+
+<div class="slate" id="front_slate">
+	<script type="text/javascript">
+
+	var free_search = true;
+	var quick_search = 0;
+	var ac_has_result = false;
+	var ac_want_result = false;
+
+	$(document).ready(function() {
+		
+			var website = "http://booxserver.heroku.com/books";
+		initautocomplete(website,"#search_box_input",autocompletedone,autocompletecancelled,false);
+		$('#search_box_input').watermark('Find your book by course code, title or author');
+
+		$(['/assets/bookcover.png','/assets/bg.ac_over.png','/assets/bg.autocomplete.png','/assets/bookcover.png']).preload();
+
+		$("#searchform").submit(function() {
+
+			$("#query").val($("#search_box_input").val());
+			if (ac_has_result == false) {
+				ac_want_result = true;
+				return false;
+			}
+			if (free_search){
+				$("#allids").val(getAllIds());
+				$("#bookid").val("-1");
+			}
+			//I have no idea why search_box_input's value is just not passed in the form...
+		  	return true;
+		});
+	$('#search_box_input').focus();
+
+	});
+
+	function autocompletedone(name,id,author,img,course_code,edition) {
+		//$("#search_icon").attr("src",img+"._SL30_.jpg");
+		//$("#search_icon").show();
+		$("#bookid").val(id);
+		$("#search_box_input").val("");
+		free_search = false;
+		ac_has_result  = true;
+		$("#searchform").submit();
+	}
+
+	function gotAjaxResult(term) {
+		ac_has_result = true;
+		if (ac_want_result == true) {
+			ac_want_result = false;
+			$("#searchform").submit();
+		}
+	}
+
+
+	function autocompletecancelled() {
+		//$("#autocomplete_default").html("<img class='icon' id='search_icon' alt='search' src='/assets/indicator.gif'/>Loading Postings");
+		ac_has_result = false;
+		ac_want_result = false;
+	//	$("#search_icon").attr("src","/assets/indicator.gif");
+		//$("#displayimg").hide();
+		$("#bookid").val(-1);
+			if ($("#search_box_input").val().length < 3) {
+				$("#search_icon").attr("src","/uoftbooks.ca_files/search.icon.png");
+			}
+	}
+</script> 	
+
+	<div id="form_box">
+		<form accept-charset="UTF-8" action="http://uoftbooks.ca/search" id="searchform" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+			<div id="search_box">
+	  			<span class="watermark_container" style="display: inline-block; position: relative;"><span class="watermark" style="position: absolute; display: block; font-family: &#39;CMU Bright Roman&#39;; font-size: 24px; color: rgb(153, 153, 153); left: 15px; top: 3px; height: 36px; line-height: 36px; text-align: left; pointer-events: none; opacity: 1;">Find your book by course code, title or author</span><input id="search_box_input" name="search_book_form" type="text" value="" autocomplete="off" class="ac_input" data-jq-watermark="processed"></span> 
+				<img class="icon" id="search_icon" alt="search" src="./uoftbooks.ca_files/search.icon.png">
+	<!--<img class ="ac_bookimg" id="displayimg" src="http://ecx.images-amazon.com/images/I/51-PLgyMIlL._SL30_.jpg" />-->
+			</div>
+	 			<input id="bookid" name="bookid" type="hidden" value="-1">
+	 			<input id="searchtype" name="searchtype" type="hidden" value="search">
+ 				<input id="allids" name="allids" type="hidden" value="">
+ 				<input id="query" name="query" type="hidden" value="">
+			<div id="search_button">
+	  			<input name="commit" type="submit" value="Search">
+			</div>
+</form>	</div>
+
+
+
+	<div id="autocomplete_default">
+		Selling a book? <a href="http://uoftbooks.ca/postings/new" class="empha_link">That's easy, too.</a>
+	</div>
+</div>
+
+
+				<!--[if IE]>
+				    <div id="IEmsg">
+				       <p>IE support for uoftbooks.ca is coming soon!<br/>In the meantime, consider upgrading to Chrome, Firefox, Safari, or Opera.</p>
+				    </div>
+				<![endif]-->
+			</div>
+		</div>
+	</div>
+	<div id="bottom_box" class="container">
+		<div class="mid_box">
+			<img alt="creative commons licensed" src="./uoftbooks.ca_files/cc.png">
+			<div id="left_footer">
+				<a href="./uoftbooks.ca_files/uoftbooks.ca.html">2011 uoftbooks.ca</a>
+			</div>
+			<div id="right_footer">
+				 <a href="http://uoftbooks.ca/about">about</a> |
+				 <a href="http://uoftbooks.ca/help">help</a> |
+				 <a href="http://uoftbooks.ca/legal">legal</a> |
+				 <a href="http://uoftbooks.ca/contact">contact</a>
+			</div>
+		</div>
+	</div>
+	<!--[if IE]>
+		<script language="javascript" >
+			$("div[class^=slate]").hide();
+
+		</script>
+	<![endif]-->
+	
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";e.async=true;e.src="https://rpm-images.newrelic.com/42/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-1.newrelic.com","aaea6281c1",277285,"dFdWTUpYCVoERhxeWV5WF1FXWgA=",0,200,new Date().getTime(),"","","","",""])</script>
+
+</body></html>
