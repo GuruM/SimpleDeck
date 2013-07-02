@@ -86,12 +86,12 @@ section {
       font-weight: 400;
       font-style: italic; }
   section.uoft {
-    background-image: url("img/UofT.svgz");
+    background-image: url("img/UofT.svg");
     background-size: 60%;
     background-position: 50% 35%;
     background-repeat: no-repeat; }
   section.aerospace {
-    background-image: url("img/plane.svgz");
+    background-image: url("img/plane.svg");
     background-size: 60%;
     background-position: 50% 35%;
     background-repeat: no-repeat; }
