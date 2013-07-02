@@ -1,0 +1,163 @@
+@mixin head-shot {
+  height: 136px;
+  border-radius: 200px;
+  vertical-align: middle;
+  margin-top: -13px;
+  margin-right: 26px;
+  border-radius: 100px;
+  border: 2px solid white;     
+  color: #999;     
+  box-shadow: 1px 1px 4px;
+}
+
+&.intro {
+	img {
+		@include head-shot;
+	}
+	font-size: 5.0em;
+	font-weight: 300;
+	span {
+		color: #666;
+		font-weight: 300;
+	}
+}
+
+
+&.guru {
+	img {
+  height: 136px;
+  border-radius: 200px;
+  vertical-align: middle;
+  margin-top: -13px;
+  margin-right: 26px;
+  border-radius: 100px;
+  border: 2px solid white;     
+  color: #999;     
+  box-shadow: 1px 1px 4px;
+	}
+}
+
+&.rexdale {
+	@include image-slide('img/wasteland.jpg');
+
+	.caption {
+    color: white;
+    font-weight: 900;
+    font-size: 5.0em;
+    position: absolute;
+    right: 45px;
+    top: 25px;
+    text-shadow: 2px 2px 0 black;
+
+	  &.sub {
+      top: 120px;
+      font-size: 2.0em;
+      -webkit-text-stroke-width: 0px; 
+      font-weight: 300;
+      color: white;
+	    text-shadow: 1px 1px 0 black;
+		}
+	}
+}
+
+&.canada {
+  background-image: url("img/canadian-leaf.svg"); 
+  background-position: 50% 50%;
+  background-size: auto 90%;
+  background-repeat: no-repeat;
+ 	.caption {
+		color: white;
+    font-size: 12.0em;
+    font-weight: 800;
+    margin-top: 60px;
+    font-family: "Lato";		
+	}
+}
+
+&.kanye {
+	@include image-slide('img/kanye.jpg');
+	background-size: auto 100%;
+	background-position: 50% 0;
+}
+
+&.fahrenheit {
+	font-size: 4.0em;
+	font-weight: 300;
+	span {
+		font-weight: 400;
+		font-style: italic;
+	}
+}
+
+&.uoft {
+  background-image: url("img/UofT.svgz"); 
+  background-size: 60%;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+}
+
+&.aerospace {
+  background-image: url("img/plane.svgz"); 
+  background-size: 60%;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+
+	.caption {
+	  position: absolute;
+	  top: 10%;
+	  left: 20%;
+	  font-size: 5em;
+	  font-weight: 900;
+	  color: #E31837;
+	  text-shadow: 1px 1px black;
+		&.sub {
+		    top: auto;
+		    left: auto;
+		    bottom: 30%;
+		    right: 10%;
+		    font-size: 3em;
+		    font-style: italic;
+		}
+	}
+
+}
+
+&.thariq {
+	font-weight: 300;
+}
+
+.block {
+	width:600px;
+	margin-left:auto;
+	margin-right: auto;
+	margin-bottom: 80px;
+	text-align: left;
+}
+
+&.signals {
+	img {
+		width: 800px;
+	}
+}
+
+&.chime-signals {
+	.block {
+		width: 762px;
+	}
+	.block.chime, .block.signals{
+		width: 408px;
+		img {
+			width: 408px;
+		}
+		margin-bottom:40px;
+	}
+
+	.block.signals {
+		margin-top: 120px;
+	}
+
+	img.signals-people {
+		width:762px;
+	}
+}
+

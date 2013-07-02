@@ -1,0 +1,157 @@
+body {
+  font-family: "Lato";
+  text-align: center;
+  margin: 0; }
+
+.content {
+  display: table;
+  height: 100%;
+  width: 100%; }
+
+section {
+  margin-top: -30px;
+  height: 100%;
+  vertical-align: middle;
+  display: none; }
+  section.current {
+    display: table-cell; }
+  section.intro {
+    font-size: 5.0em;
+    font-weight: 300; }
+    section.intro img {
+      height: 136px;
+      border-radius: 200px;
+      vertical-align: middle;
+      margin-top: -13px;
+      margin-right: 26px;
+      border-radius: 100px;
+      border: 2px solid white;
+      color: #999;
+      box-shadow: 1px 1px 4px; }
+    section.intro span {
+      color: #666;
+      font-weight: 300; }
+  section.guru img {
+    height: 136px;
+    border-radius: 200px;
+    vertical-align: middle;
+    margin-top: -13px;
+    margin-right: 26px;
+    border-radius: 100px;
+    border: 2px solid white;
+    color: #999;
+    box-shadow: 1px 1px 4px; }
+  section.rexdale {
+    background-image: url("img/wasteland.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: black; }
+    section.rexdale .caption {
+      color: white;
+      font-weight: 900;
+      font-size: 5.0em;
+      position: absolute;
+      right: 45px;
+      top: 25px;
+      text-shadow: 2px 2px 0 black; }
+      section.rexdale .caption.sub {
+        top: 120px;
+        font-size: 2.0em;
+        -webkit-text-stroke-width: 0px;
+        font-weight: 300;
+        color: white;
+        text-shadow: 1px 1px 0 black; }
+  section.canada {
+    background-image: url("img/canadian-leaf.svg");
+    background-position: 50% 50%;
+    background-size: auto 90%;
+    background-repeat: no-repeat; }
+    section.canada .caption {
+      color: white;
+      font-size: 12.0em;
+      font-weight: 800;
+      margin-top: 60px;
+      font-family: "Lato"; }
+  section.kanye {
+    background-image: url("img/kanye.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: black;
+    background-size: auto 100%;
+    background-position: 50% 0; }
+  section.fahrenheit {
+    font-size: 4.0em;
+    font-weight: 300; }
+    section.fahrenheit span {
+      font-weight: 400;
+      font-style: italic; }
+  section.uoft {
+    background-image: url("img/UofT.svgz");
+    background-size: 60%;
+    background-position: 50% 35%;
+    background-repeat: no-repeat; }
+  section.aerospace {
+    background-image: url("img/plane.svgz");
+    background-size: 60%;
+    background-position: 50% 35%;
+    background-repeat: no-repeat; }
+    section.aerospace .caption {
+      position: absolute;
+      top: 10%;
+      left: 20%;
+      font-size: 5em;
+      font-weight: 900;
+      color: #E31837;
+      text-shadow: 1px 1px black; }
+      section.aerospace .caption.sub {
+        top: auto;
+        left: auto;
+        bottom: 30%;
+        right: 10%;
+        font-size: 3em;
+        font-style: italic; }
+  section.thariq {
+    font-weight: 300; }
+  section .block {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    text-align: left; }
+  section.signals img {
+    width: 800px; }
+  section.chime-signals .block {
+    width: 762px; }
+  section.chime-signals .block.chime, section.chime-signals .block.signals {
+    width: 408px;
+    margin-bottom: 40px; }
+    section.chime-signals .block.chime img, section.chime-signals .block.signals img {
+      width: 408px; }
+  section.chime-signals .block.signals {
+    margin-top: 120px; }
+  section.chime-signals img.signals-people {
+    width: 762px; }
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+@media (max-width: 900px) {
+  section.guru {
+    font-size: 4.0em; }
+    section.guru img {
+      height: 106px; }
+  section.canada .caption {
+    font-size: 9.0em; }
+  section.fahrenheit {
+    font-size: 3.0em; } }
+#map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  position: absolute !important;
+  width: 100%; }

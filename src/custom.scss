@@ -1,0 +1,29 @@
+@media (max-width:900px) {
+	section {
+		&.guru {
+			font-size: 4.0em;
+			img {
+				height: 106px;
+			}
+		}
+
+		&.canada {
+			.caption {
+				font-size: 9.0em;				
+			}
+		}
+
+		&.fahrenheit {
+			font-size: 3.0em;
+		}
+	}
+}
+
+#map-canvas {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	visibility:hidden;
+	position:absolute!important;
+	width:100%;
+}

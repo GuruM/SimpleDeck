@@ -1,0 +1,41 @@
+@mixin image-slide($image-url){
+	background-image: url($image-url);
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-color: black
+}
+
+
+body {
+	font-family: "Lato";
+	text-align: center;
+	margin: 0;
+}
+
+.content {
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+section {
+	margin-top: -30px;
+	height: 100%;
+	vertical-align: middle;
+	display: none;
+	&.current {
+		display: table-cell;
+	}
+	@import 'slides.scss';
+}
+
+iframe {
+	position: absolute;
+	top:0;
+	left: 0;
+	width:100%;
+	height: 100%;
+}
+
+
+@import 'custom.scss';
